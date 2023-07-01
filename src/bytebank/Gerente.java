@@ -12,6 +12,12 @@ public class Gerente extends Funcionario{
         this.clave = clave;
     }
 
+    @Override
+    public double getBonificacion() {
+        System.out.println("LLamando metodo del Gerente");
+        return super.getBonificacion() + super.getSalario();
+    }
+
     public boolean iniciarSesion(String clave) {
         return this.clave.equals(clave);
     }
