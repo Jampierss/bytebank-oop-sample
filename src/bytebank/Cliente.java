@@ -1,10 +1,14 @@
 package bytebank;
 
-public class Cliente {
+import controller.Autenticable;
+
+public class Cliente implements Autenticable {
 
     private String nombre;
     private String documento;
     private String telefono;
+
+    private String clave;
 
     public String getNombre() {
         return nombre;
@@ -28,5 +32,15 @@ public class Cliente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    @Override
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    @Override
+    public boolean iniciarSesion(String clave) {
+        return this.clave.equals(clave);
     }
 }
