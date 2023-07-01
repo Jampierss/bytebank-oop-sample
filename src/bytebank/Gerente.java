@@ -1,24 +1,21 @@
 package bytebank;
 
-public class Gerente extends Funcionario{
+import controller.Autenticable;
 
-    private String clave;
+public class Gerente extends Funcionario implements Autenticable {
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
+    public double getBonificacion() {
+        System.out.println("Ejecutando desde gerente");
+        return 2000;
     }
 
     @Override
-    public double getBonificacion() {
-        System.out.println("LLamando metodo del Gerente");
-        return super.getBonificacion() + super.getSalario();
+    public void setClave(String clave) {
+
     }
 
+    @Override
     public boolean iniciarSesion(String clave) {
-        return this.clave.equals(clave);
+        return false;
     }
 }
