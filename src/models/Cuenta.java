@@ -18,6 +18,7 @@ public class Cuenta {
         this.agencia = agencia;
         this.numero = numero;
         System.out.println("Estoy creando una cuenta " + this.numero);
+        Cuenta.total ++;
     }
 
     public void deposita(double valor) {
