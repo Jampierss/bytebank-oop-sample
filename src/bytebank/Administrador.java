@@ -1,12 +1,14 @@
 package bytebank;
 
 import controller.Autenticable;
+import controller.AutenticableUtil;
 
 public class Administrador extends Funcionario implements Autenticable {
 
-    private String clave;
+    private AutenticableUtil util;
 
     public Administrador() {
+        this.util = new AutenticableUtil();
     }
 
     @Override
@@ -16,11 +18,11 @@ public class Administrador extends Funcionario implements Autenticable {
 
     @Override
     public void setClave(String clave) {
-        this.clave = clave;
+        this.util.setClave(clave);
     }
 
     @Override
     public boolean iniciarSesion(String clave) {
-        return this.clave.equals(clave);
+        return this.util.iniciarSesion(clave);
     }
 }
