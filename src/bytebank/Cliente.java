@@ -1,6 +1,7 @@
 package bytebank;
 
 import controller.Autenticable;
+import controller.AutenticableUtil;
 
 public class Cliente implements Autenticable {
 
@@ -8,7 +9,11 @@ public class Cliente implements Autenticable {
     private String documento;
     private String telefono;
 
-    private String clave;
+    private AutenticableUtil util;
+
+    public Cliente() {
+        this.util = new AutenticableUtil();
+    }
 
     public String getNombre() {
         return nombre;
@@ -36,11 +41,11 @@ public class Cliente implements Autenticable {
 
     @Override
     public void setClave(String clave) {
-        this.clave = clave;
+        this.util.setClave(clave);
     }
 
     @Override
     public boolean iniciarSesion(String clave) {
-        return this.clave.equals(clave);
+        return this.util.iniciarSesion(clave);
     }
 }
